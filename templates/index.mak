@@ -3,6 +3,7 @@
   <title>pyramid tutotrial</title>
 </head>
 <body>
-<h1>Hello, ${name}</h1>
+${request.context.get_date()}
+${request.context.greeting()}
 </body>
 </html>
