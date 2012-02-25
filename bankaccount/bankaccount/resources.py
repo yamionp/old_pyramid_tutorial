@@ -1,6 +1,6 @@
 
 from sqlalchemy.orm.exc import NoResultFound
-from . import models
+from models import DBSession, BankAccount
 
 class Root(object):
     def __init__(self, request):
@@ -8,7 +8,7 @@ class Root(object):
 
     def get_bankaccount(self):
         try:
-            return models.DBSession.query(models.BankAccount).filter_by(name=u'default').one()
+            return DBSession.query(BankAccount).filter_by(name=u'default').one()
         except NoResultFound:
             return None
 

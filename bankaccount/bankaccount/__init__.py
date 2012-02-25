@@ -14,9 +14,12 @@ def main(global_config, **settings):
                           settings=settings,
                           session_factory=my_session_factory)
     config.include('pyramid_tm')
+
     config.add_route('home', '/')
     config.add_route('deposit', '/deposit')
     config.add_route('withdraw', '/withdraw')
+
     config.add_static_view('static', 'bankaccount:static')
+
     config.scan('.views')
     return config.make_wsgi_app()
